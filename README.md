@@ -8,4 +8,6 @@
 - 使用colorui ui组件库
 
 
+使用 push.sh 脚本来上传和更新代码
+
 
