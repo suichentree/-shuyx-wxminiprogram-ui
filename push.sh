@@ -179,7 +179,7 @@ main() {
 
     # 3. 拉取最新代码
     info "[3/5] 同步最新代码..."
-    # pull_latest_code
+    pull_latest_code
     
     # 4. 提交并推送变更
     info "[4/5] 提交并推送代码..."
