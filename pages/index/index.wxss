@@ -1,62 +1,22 @@
-/**index.wxss**/
-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
-}
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-  width: 80%;
+.cardTitle{
+	color: #FFFFFF;
+	padding: 90rpx 60rpx;
+	font-size: 40rpx;
+	font-weight: 300;
+	-webkit-transform: skew(-10deg, 0deg);
+	        transform: skew(-10deg, 0deg);
+	position: relative;
+	text-shadow: 0px 0px 6rpx rgba(0, 0, 0, 0.3);
 }
 
-.userinfo-avatar {
+/* 滚动通知 */
+.swiper_container {
+  height: 50rpx;
+  width: 90vw;
+}
+.swiper_item {
   overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
-  display: flex;
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
-.nickname-label {
-  width: 105px;
-}
-
-.nickname-input {
-  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 2px;
 }

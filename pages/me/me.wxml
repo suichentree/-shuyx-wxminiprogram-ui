@@ -1,2 +1,85 @@
-<!--pages/me.wxml-->
-<text>pages/me.wxml</text>
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <!-- <image src="{{user_info.avatarUrl}}" mode="widthFix"></image> -->
+    <view class="cu-avatar xl round" wx:if="{{user_info == null }}">无</view>
+    <view class="cu-avatar xl round" style="background-image:url({{user_info.avatarUrl}});" wx:else></view>
+    <view class="text-xl">{{user_info.nickName}}</view>
+    <image src="https://cdn.nlark.com/yuque/0/2019/gif/280373/1570670848649-assets/web-upload/3dbaa72a-062b-470f-9b9d-058ff8f85ab8.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{visitTotal}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> View</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{starCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> Star</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text> Fork</view>
+    </view>
+  </view>
+
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item">
+				<view class="content">
+					<text class="cuIcon-favorfill text-red"></text>
+					<text class="text-grey">微信登录</text>
+				</view>
+        <button size="mini" class="cu-btn round bg-gradual-green shadow-blur" wx:if="{{user_id > 0}}">已登录</button>
+        <button size="mini" class="cu-btn round bg-gradual-green shadow-blur" bindtap="wxLogin" open-type="getUserInfo" wx:else>点击登录</button>
+		</view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="toUserInfo">
+        <text class="text-olive cuIcon-people"></text>
+        <text class="text-grey">个人信息</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button  class="cu-btn content" bindtap="toMsg">
+        <text class="text-olive cuIcon-messagefill"></text>
+        <text class="text-grey">消息</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="toHistory">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">评测记录</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="showQrcode">
+        <text class="cuIcon-qrcode text-cyan"></text>
+        <text class="text-grey">小程序二维码</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="nofinish">
+      <!-- <button class="cu-btn content" bindtap="toExam"> -->
+        <text class="text-black cuIcon-settingsfill"></text>
+        <text class="text-grey">设置</text>
+      </button>
+    </view>
+    <view class="cu-item">
+      <button class="cu-btn content" bindtap="updateSubscription">
+        <view class="content">
+          <text class="cuIcon-warn text-green"></text>
+          <text class="text-grey">版本号</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-lg">{{versionNumber}}</text>
+        </view>
+      </button>
+    </view>
+  </view>
+</scroll-view>

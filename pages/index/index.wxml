@@ -1,31 +1,62 @@
-<!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+<view class="box">
+  <!--top搜索-->
+  <view class="cu-bar search bg-yellow">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
     </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+    <button size="mini" class="cu-btn round bg-gradual-green shadow-blur">搜索</button>
+  </view>
+  <!--轮播图-->
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{swiperList}}" wx:key="index">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </swiper-item>
+  </swiper>
+  <!-- 滚动通知 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+        <block wx:for="{{msgList}}" wx:key="title">
+            <swiper-item>
+              <text class="cuIcon-title text-blue swiper_item">{{item.title}}</text>
+            </swiper-item>
+        </block>
+      </swiper>
     </view>
   </view>
-  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-    <view slot="backText">返回</view>
-    <view slot="content">导航栏</view>
-  </cu-custom>
-</scroll-view>
+  <!--学习手册-->
+  <scroll-view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">学习手册</text>
+      </view>
+    </view>
+    <view class="{{['cu-list grid','col-3','no-border']}}">
+      <block wx:for="{{cuIconList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="cu-item" bindtap="toshow" data-src="{{item.file_src}}">
+          <view class="{{['cuIcon-'+item.cuIcon,'text-'+item.color]}}"></view>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <!--其他-->
+  <scroll-view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">其他</text>
+      </view>
+    </view>
+   <view class="cu-card bg-white">
+    <block wx:for="{{cardlist}}" wx:for-item="item" wx:for-index="index" wx:key="index" >
+      <view class="cu-item bg-img shadow-blur" style="{{'background-image:'+('url('+item.img+')')+';'}}" bindtap="nofinish">
+        <view class="cardTitle">{{''+item.title+''}}</view>
+      </view>
+    </block>
+  </view>
+  </scroll-view>
+</view>
