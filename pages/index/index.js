@@ -1,5 +1,5 @@
 //导入API对象
-const API = require('../../utils/api')
+const APIRequest = require('../../utils/request')
 //获取应用实例
 const app = getApp()
 
@@ -7,7 +7,7 @@ Page({
   //用户点击右上角分享
   onShareAppMessage: function () {
     return {
-      title: 'suichen的个人博客，快来参观把！',
+      title: 'Shuyx Lab 工坊 欢迎您的参观！',
       imageUrl: '/static/wx_qrcode.jpg',
       path: '/pages/index/index'
     }
@@ -82,7 +82,7 @@ Page({
         url: '../plugin/indexes'
       },
       {
-        title: '我的简历',
+        title: '我的网站',
         img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
         url: '../plugin/animation'
       },
@@ -108,12 +108,14 @@ Page({
                   if (login_res.code) {
                     //用code换取用户openid,unionid
                     let data = {
-                      code: login_res.code,
-                      head: getApp().globalData.userInfo.avatarUrl,
-                      name: getApp().globalData.userInfo.nickName,
-                      gender: getApp().globalData.userInfo.gender
+                      "code":login_res.code,
+                      "userInfo":{
+                        headUrl: getApp().globalData.userInfo.avatarUrl,
+                        name: getApp().globalData.userInfo.nickName,
+                        gender: getApp().globalData.userInfo.gender
+                      }
                     }
-                    API.wxRegister(data)
+                    APIRequest.wxLogin(data)
                     .then(function (res) {
                         console.log("res",res);
                         if(res.code === 200){
