@@ -1,0 +1,119 @@
+<view class="cu-list menu sm-border">
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-emoji text-pink"></text>
+        <text class="text-grey">头像</text>
+      </view>
+      <view class="action">
+        <view class="cu-avatar-group">
+          <view class="cu-avatar radius" style="{{'background-image:'+('url('+u_headimg+')')+';'}}"></view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-vipcard text-green"></text>
+        <text class="text-grey">昵称</text>
+      </view>
+      <view class="action">
+        <text class="text-black text-lg">{{u_nickname}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-emoji text-bule"></text>
+        <text class="text-grey">性别</text>
+      </view>
+      <view class="action">
+        <text class="text-black text-lg" wx:if="{{u_gender === 0}}">暂无</text>
+        <text class="text-black text-lg" wx:elif="{{u_gender === 1}}">男</text>
+        <text class="text-black text-lg" wx:else>女</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="cuIcon-emoji text-yellow"></text>
+        <text class="text-grey">年龄</text>
+      </view>
+      <view class="action">
+        <picker mode="selector" value="{{ages_index}}" range="{{ages}}" bindchange="AgeChange">
+          <view class="picker">
+            {{ages[ages_index]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="cuIcon-home text-pink"></text>
+        <text class="text-grey">地址</text>
+      </view>
+      <view class="action">
+        <picker mode="region" bindchange="RegionChange" value="{{region}}">
+          <view class="picker">
+            {{region[0]}} - {{region[1]}} - {{region[2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="showModal" data-target="DialogModal1">
+      <view class="content">
+        <text class="cuIcon-mobile text-gray"></text>
+        <text class="text-grey">电话</text>
+      </view>
+      <view class="action">
+        <text class="text-black text-lg">{{u_phone}}</text>
+      </view>
+    </view>
+    <view class="cu-item arrow"  bindtap="showModal" data-target="DialogModal2">
+      <view class="content">
+        <text class="cuIcon-mail text-red"></text>
+        <text class="text-grey">邮箱</text>
+      </view>
+      <view class="action">
+        <text class="text-black text-lg">{{u_email}}</text>
+      </view>
+    </view>
+    <!-- 保存按钮 -->
+    <view class="flex-item ">
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-gradual-red margin-tb-sm lg" bindtap="saveUserInfo">保存</button>
+      </view>
+    </view>
+    <!--电话模态框 -->
+    <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">请输入以下内容</view>
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-xl">
+          <input placeholder="请输入电话..." value="{{u_phone}}" bindinput="updatePhone"/>
+        </view>
+        <view class="cu-bar bg-white">
+          <view class="action margin-0 flex-sub text-red " bindtap="hideModal">取消</view>
+          <view class="action margin-0 flex-sub text-green solid-left" bindtap="hideModal">确定</view>
+        </view>
+      </view>
+    </view>
+    <!--邮箱模态框 -->
+    <view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">请输入以下内容</view>
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-xl">
+          <input placeholder="请输入邮箱..." value="{{u_email}}" bindinput="updateEmail"/>
+        </view>
+        <view class="cu-bar bg-white">
+          <view class="action margin-0 flex-sub text-red " bindtap="hideModal">取消</view>
+          <view class="action margin-0 flex-sub text-green solid-left" bindtap="hideModal">确定</view>
+        </view>
+      </view>
+    </view>
+</view>

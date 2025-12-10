@@ -1,0 +1,14 @@
+page{
+    background-image: url(https://cdn.nlark.com/yuque/0/2019/png/223589/1551628180485-assets/web-upload/1431efa1-478c-4ea6-bd13-ab08e581cb57.png) no-repeat;
+    background-size: cover;
+}
+.a_css{
+  margin-top:30px;
+}
+.q_css{
+  height:100px;
+}
+/* 当选项内容过多，自动撑高 */
+.cu-form-group .title{
+  height:auto;
+}

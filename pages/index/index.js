@@ -1,5 +1,5 @@
 //导入API对象
-const APIRequest = require('../../utils/request')
+const API = require('../../utils/request')
 //获取应用实例
 const app = getApp()
 
@@ -24,35 +24,35 @@ Page({
       {
         id: 0,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+        url: '/static/111.png'
       }, {
         id: 1,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+        url: '/static/222.png',
       }, {
         id: 2,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+        url: '/static/333.png'
       }, {
         id: 3,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+        url: '/static/444.png'
       }, {
         id: 4,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+        url: '/static/555.png'
       }, {
         id: 5,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+        url: '/static/666.png'
       }, {
         id: 6,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+        url: '/static/777.png'
       }, {
         id: 7,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg'
+        url: '/static/888.png'
       }
     ],
     cuIconList: [
@@ -78,17 +78,17 @@ Page({
     cardlist: [
       {
         title: '我的博客',
-        img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
+        img: '/static/111.png',
         url: '../plugin/indexes'
       },
       {
         title: '我的网站',
-        img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
+        img: '/static/222.png',
         url: '../plugin/animation'
       },
       {
         title: '我的收藏',
-        img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
+        img: '/static/333.png',
         url: '../plugin/drawer'
       }
     ]
@@ -108,14 +108,12 @@ Page({
                   if (login_res.code) {
                     //用code换取用户openid,unionid
                     let data = {
-                      "code":login_res.code,
-                      "userInfo":{
-                        headUrl: getApp().globalData.userInfo.avatarUrl,
-                        name: getApp().globalData.userInfo.nickName,
-                        gender: getApp().globalData.userInfo.gender
-                      }
+                      code:login_res.code,
+                      headUrl: getApp().globalData.userInfo.avatarUrl,
+                      name: getApp().globalData.userInfo.nickName,
+                      gender: getApp().globalData.userInfo.gender
                     }
-                    APIRequest.wxLogin(data)
+                    API.wxLogin(data)
                     .then(function (res) {
                         console.log("res",res);
                         if(res.code === 200){

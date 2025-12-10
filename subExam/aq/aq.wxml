@@ -1,0 +1,40 @@
+<!-- 题目类型标签 -->
+<view class="margin-top text-center">
+  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === 1 }}">
+   单选题
+  </view>
+  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === 2 }}">
+   多选题
+  </view>
+</view>
+<view class='bg-white padding-xs radius shadow-lg margin-lr-lg a_css'>
+  <!-- 题目内容 -->
+  <view class='padding-top-sm text-center text-lg text-black q_css'>
+   {{question_pageNo+1}}. {{question_info[question_pageNo].name}}
+  </view>
+  <!-- 题目选项 -->
+  <view wx:if="{{question_info[question_pageNo].questionType === 1 }}">
+      <radio-group class="block" bindchange="radioSelect">
+        <view class="cu-form-group" wx:for="{{question_info[question_pageNo].options}}" wx:key="item">
+          <view class="title">{{item.content}}</view>
+          <radio class="blue radio" value="{{item.optionId}}"></radio>
+        </view>
+      </radio-group>
+  </view>
+  <view wx:elif="{{question_info[question_pageNo].questionType === 2 }}">
+      <checkbox-group bindchange="checkboxSelect">
+        <view class="cu-form-group" wx:for="{{question_info[question_pageNo].options}}" wx:key="item" >
+          <view class="title">{{item.content}}</view>
+          <checkbox class="blue" value="{{item.optionId}}"></checkbox>
+        </view>
+      </checkbox-group>
+  </view>
+  <!-- 题目进度 -->
+  <view class='text-center margin-tb text-lg text-black'>{{question_pageNo+1}} / {{question_info.length}}</view>
+</view>
+<!--上一题下一题按钮 -->
+<view class="padding flex flex-direction">
+  <button class="cu-btn margin-tb-sm lg"  bindtap="toNext" data-qt="{{question_info[question_pageNo].questionType}}" wx:if="{{question_pageNo+1 === question_info.length}}">提交</button>
+  <button class="cu-btn margin-tb-sm lg"  bindtap="toNext" data-qt="{{question_info[question_pageNo].questionType}}" wx:else>下一题</button>
+</view>
+

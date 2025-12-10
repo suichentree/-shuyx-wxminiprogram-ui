@@ -1,0 +1,10 @@
+<view class="msg">
+  <view wx:if="{{!msg}}">
+    <view class="img">
+      <image mode="aspectFill" src="/static/404.png"></image>
+    </view>
+  </view>
+  <view wx:else>
+    <view>消息不为空</view>
+  </view>
+</view>

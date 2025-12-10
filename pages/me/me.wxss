@@ -1,5 +1,5 @@
 .UCenter-bg {
-  background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
+  background-color: rgba(34, 180, 15, 0.932);
   background-size: cover;
   height: 350rpx;
   display: flex;

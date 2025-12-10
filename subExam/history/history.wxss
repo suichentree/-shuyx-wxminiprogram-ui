@@ -1,0 +1,15 @@
+.cardTitle{
+  color: #fff;
+  padding: 70rpx 60rpx;
+  font-size: 40rpx;
+  font-weight: 300;
+  transform: skew(-10deg, 0deg);
+  position: relative;
+  text-shadow: 0px 0px 6rpx rgba(0,0,0,0.3)
+}
+.cardTime{
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 300;
+  position: relative;
+}

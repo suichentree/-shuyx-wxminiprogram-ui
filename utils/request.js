@@ -42,11 +42,11 @@ module.exports = {
   //微信登录
   wxLogin: data => request('/mp/user/wxLogin', 'POST', data, contentType2),
   //测试列表
-  getExamList: data => request('/mp/exam/getExamList', 'POST', data, contentType1),
+  getExamList: data => request('/mp/exam/getExamList', 'GET', data, contentType1),
   //问题列表
-  questionList: data => request('/mp/exam/questionList', 'POST', data, contentType1),
+  questionList: data => request('/mp/exam/getQuestionList', 'POST', data, contentType2),
   //获取用户测试进度
-  examProgress: data => request('/mp/exam/examProgress', 'POST', data, contentType1),
+  examProgress: data => request('/mp/exam/getExamProgress', 'POST', data, contentType2),
   //单选答题
   danxueAnswer: data => request('/mp/exam/danxue_Answer', 'POST', data, contentType1),
   //多选答题

@@ -1,0 +1,14 @@
+<view class="exam">
+  <scroll-view scroll-y class="scrollPage">
+    <view class="cu-card">
+      <!-- 列表渲染面试测试题目 -->
+      <block wx:for="{{exam_info}}" wx:key="item">
+        <view class="cu-item bg-img shadow-blur" style="background-image: url('/static/777.png');" bindtap="toAq" data-src="{{item.id}}">
+          <view class="cardTitle">
+             {{item.name}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

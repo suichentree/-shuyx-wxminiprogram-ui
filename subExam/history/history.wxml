@@ -1,0 +1,17 @@
+<view class="history">
+  <scroll-view scroll-y class="scrollPage">
+    <view class="cu-card">
+      <!-- 列表渲染面试测试题目 -->
+      <block wx:for="{{history_list}}" wx:key="item">
+        <view class="cu-item bg-img shadow-blur" style="background-image:url(https://image.weilanwl.com/color2.0/plugin/wdh2236.jpg)" bindtap="toResult" data-src="{{item.examId}}">
+          <view class="cardTitle">
+             {{item.examName}}
+              <view class="cardTime margin-top">
+                最近完成时间：{{item.finishTime}}
+              </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

@@ -1,13 +1,38 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/exam/exam"
   ],
-  "window": {
-    "navigationStyle": "custom",
+  "subpackages": [
+    {
+      "root":"subMe",
+      "pages": [
+        "userinfo/userinfo",
+        "msg/msg"
+      ]
+    },
+    {
+      "root": "subEssay",
+      "pages": [
+        "show/show"
+      ]
+    },
+    {
+      "root": "subExam",
+      "pages": [
+        "aq/aq",
+        "result/result",
+        "history/history"
+      ]
+    }
+  ],
+  "window": {  
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "Shuyx Lab",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#FFC125",
+    "backgroundColor": "#FFC125"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
@@ -27,6 +52,12 @@
         "iconPath": "static/tabBar_img/home.png",
         "selectedIconPath": "static/tabBar_img/home_active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/exam/exam",
+        "iconPath": "static/tabBar_img/home.png",
+        "selectedIconPath": "static/tabBar_img/home_active.png",
+        "text": "测试"
       },
       {
         "pagePath": "pages/me/me",

@@ -4,7 +4,7 @@
     <view class="cu-avatar xl round" wx:if="{{user_info == null }}">无</view>
     <view class="cu-avatar xl round" style="background-image:url({{user_info.avatarUrl}});" wx:else></view>
     <view class="text-xl">{{user_info.nickName}}</view>
-    <image src="https://cdn.nlark.com/yuque/0/2019/gif/280373/1570670848649-assets/web-upload/3dbaa72a-062b-470f-9b9d-058ff8f85ab8.gif" mode="scaleToFill" class="gif-wave"></image>
+    <image src="/static/aaa.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
     <view class="flex flex-sub flex-direction solid-right">

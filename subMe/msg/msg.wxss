@@ -1,0 +1,6 @@
+/* subMe/msg/msg.wxss */
+.img{
+  position:fixed;
+  left:10%;
+  top:20%;
+}

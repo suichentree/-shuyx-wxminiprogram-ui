@@ -1,0 +1,74 @@
+<view class="result">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">测试分析</text>
+      </view>
+    </view>
+    <view class="container">
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec}}"></ec-canvas>
+    </view>
+    <view class="margin-left margin-bottom text-gray">
+        <view>正确率：这次测试中做对题目的比例。</view>
+        <view>错误率：这次测试中做错题目的比例。</view>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">答题分析</text>
+      </view>
+    </view>
+    <!--问题分析样式-->
+    <view class="grid col-6 padding-sm bg-white">
+      <view class="margin-tb-sm text-center" wx:for="{{optionList}}" wx:key="index">
+        <button bindtap="showOption" data-questionid="{{item.questionId}}" size="mini" class="cu-btn shadow bg-green" wx:if="{{item.isAnswerCorrect > 0}}" >{{index+1}}</button>
+        <button bindtap="showOption" data-questionid="{{item.questionId}}" size="mini" class="cu-btn shadow bg-red" wx:else>{{index+1}}</button>
+      </view>
+    </view>
+    <!--选项分析样式-->
+    <view class="bg-white answer_analyse solid-top" wx:if="{{isShow}}">
+      <view class='text-center text-lg text-blue q_css'>
+       你的选择是 {{question_option[2].text}}
+      </view>
+      <view class='text-center text-lg text-black q_css padding-left-sm padding-right-sm'>
+      {{question_option[0].question_name}}
+      </view>
+      <block wx:for="{{question_option[1]}}" wx:key="item" >
+        <view class='text-content'>
+          <button style="width:350px;height:60px" class="cu-btn margin-top block bg-green" disabled type="" wx:if="{{item.isRight ==1}}">
+         {{item.option_num}} : {{item.option_name}}
+          </button>
+          <button style="width:350px;height:60px" class="cu-btn margin-top block bg-red" disabled type="" wx:else>
+         {{item.option_num}} : {{item.option_name}}
+          </button>
+        </view>
+      </block>
+    </view>
+    <view class="margin-left margin-top margin-bottom text-gray">
+        <view>绿色：正确的选项。</view>
+        <view>红色：错误的选项。</view>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">全部历史分析</text>
+      </view>
+    </view>
+    <view class="container2">
+      <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ac}}"></ec-canvas>
+    </view>
+    <view class="margin-left margin-bottom text-gray">
+        <view>总数：测试中题目的总数。</view>
+        <view>正确：测试中答对的题目数。</view>
+        <view>错误：测试中答错的题目数。</view>
+    </view>
+    <!--按钮 -->
+    <view class="flex-item ">
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-gradual-red margin-tb-sm lg" bindtap="goIndex">我知道了</button>
+      </view>
+    </view>
+</view>
+
