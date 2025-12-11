@@ -1,5 +1,5 @@
 import * as echarts from '../../ec-canvas/echarts.js';
-const API = require('../../utils/api')
+const API = require('../../utils/request')
 
 //饼图的数据
 var option_pie = {

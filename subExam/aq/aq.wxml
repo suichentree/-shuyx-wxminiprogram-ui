@@ -1,9 +1,9 @@
 <!-- 题目类型标签 -->
 <view class="margin-top text-center">
-  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === 1 }}">
+  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === '单选题' }}">
    单选题
   </view>
-  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === 2 }}">
+  <view class="cu-tag radius" wx:if="{{question_info[question_pageNo].questionType === '多选题' }}">
    多选题
   </view>
 </view>
@@ -13,7 +13,7 @@
    {{question_pageNo+1}}. {{question_info[question_pageNo].name}}
   </view>
   <!-- 题目选项 -->
-  <view wx:if="{{question_info[question_pageNo].questionType === 1 }}">
+  <view wx:if="{{question_info[question_pageNo].questionType === '单选题' }}">
       <radio-group class="block" bindchange="radioSelect">
         <view class="cu-form-group" wx:for="{{question_info[question_pageNo].options}}" wx:key="item">
           <view class="title">{{item.content}}</view>
@@ -21,7 +21,7 @@
         </view>
       </radio-group>
   </view>
-  <view wx:elif="{{question_info[question_pageNo].questionType === 2 }}">
+  <view wx:elif="{{question_info[question_pageNo].questionType === '多选题' }}">
       <checkbox-group bindchange="checkboxSelect">
         <view class="cu-form-group" wx:for="{{question_info[question_pageNo].options}}" wx:key="item" >
           <view class="title">{{item.content}}</view>

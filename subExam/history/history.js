@@ -1,5 +1,5 @@
 // subExam/history/history.js
-const API = require("../../utils/api")
+const API = require("../../utils/request")
 Page({
 
   /**

@@ -48,19 +48,19 @@ module.exports = {
   //获取用户测试进度
   examProgress: data => request('/mp/exam/getExamProgress', 'POST', data, contentType2),
   //单选答题
-  danxueAnswer: data => request('/mp/exam/danxue_Answer', 'POST', data, contentType1),
+  danxueAnswer: data => request('/mp/exam/danxue_Answer', 'POST', data, contentType2),
   //多选答题
-  duoxueAnswer: data => request('/mp/exam/duoxue_Answer', 'POST', data, contentType1),
+  duoxueAnswer: data => request('/mp/exam/duoxue_Answer', 'POST', data, contentType2),
   //计算测试结果
-  result: data => request('/mp/exam/result', 'POST', data, contentType1),
+  result: data => request('/mp/exam/result', 'POST', data, contentType2),
   //问题分析
-  questionAnalyse: data => request('/mp/exam/questionAnalyse', 'POST', data, contentType1),
+  questionAnalyse: data => request('/mp/exam/questionAnalyse', 'POST', data, contentType2),
   //选项分析
-  optionAnalyse: data => request('/mp/exam/optionAnalyse', 'POST', data, contentType1),
+  optionAnalyse: data => request('/mp/exam/optionAnalyse', 'POST', data, contentType2),
   //历史记录
-  getHistoryList: data => request('/mp/exam/history', 'POST', data, contentType1),
+  getHistoryList: data => request('/mp/exam/history', 'POST', data, contentType2),
   //获取用户个人信息
-  getUserINFO: data => request('/mp/user/getUserInfo', 'POST', data, contentType1),
+  getUserINFO: data => request('/mp/user/getUserInfo', 'POST', data, contentType2),
   //保存用户个人信息
-  saveUserINFO: data => request('/mp/user/saveUserInfo', 'POST', data, contentType1),
+  saveUserINFO: data => request('/mp/user/saveUserInfo', 'POST', data, contentType2),
 }

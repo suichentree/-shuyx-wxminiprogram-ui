@@ -75,7 +75,7 @@ Page({
    */
   toNext:function(e){
     if (this.data.select_options){
-      if (e.currentTarget.dataset.qt === 1){
+      if (e.currentTarget.dataset.qt === '单选题'){
         //单选题答题接口
         let that = this;
         API.danxueAnswer({
@@ -91,7 +91,7 @@ Page({
             icon: "none"
           })
         });
-      } else if (e.currentTarget.dataset.qt === 2){
+      } else if (e.currentTarget.dataset.qt === '多选题'){
           //多选题答题接口
         let that = this;
         API.duoxueAnswer({
@@ -108,6 +108,11 @@ Page({
             icon: "none"
           })
         });
+      }else{
+        wx.showToast({
+          title: "无法失败的题目类型",
+          icon: "none"
+        })
       }
     }else{
       wx.showToast({

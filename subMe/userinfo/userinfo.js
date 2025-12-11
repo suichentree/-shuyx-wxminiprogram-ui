@@ -1,4 +1,4 @@
-const API = require("../../utils/api")
+const API = require("../../utils/request")
 Page({
   /**
    * 页面的初始数据

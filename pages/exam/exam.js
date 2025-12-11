@@ -59,7 +59,6 @@ Page({
    * 
    * **/
   toAq:function(e){
-    console.log("toAq方法,接收参数examid", e.currentTarget.dataset.src)
     wx.navigateTo({
       url: '/subExam/aq/aq?exam_id='+e.currentTarget.dataset.src
     })
