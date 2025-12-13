@@ -109,9 +109,11 @@ Page({
                     //用code换取用户openid,unionid
                     let data = {
                       code:login_res.code,
-                      headUrl: getApp().globalData.userInfo.avatarUrl,
-                      name: getApp().globalData.userInfo.nickName,
-                      gender: getApp().globalData.userInfo.gender
+                      dto:{
+                        head_url: getApp().globalData.userInfo.avatarUrl,
+                        name: getApp().globalData.userInfo.nickName,
+                        gender: getApp().globalData.userInfo.gender
+                      }
                     }
                     API.wxLogin(data)
                     .then(function (res) {
